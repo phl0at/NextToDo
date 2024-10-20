@@ -14,10 +14,10 @@ datasource db {
 model toDo {
   id Int @id @default(autoincrement())
   title String
-  notes notes[]
+  tasks tasks[]
 }
 
-model notes {
+model tasks {
   id Int @id @default(autoincrement())
   list toDo @relation(fields: [listId], references: [id])
   text String
