@@ -3,10 +3,10 @@ type List = {
   id: number;
   title: string;
 };
-/* eslint-disable */
 
-// type Note = {
-//     id: number,
-//     text: string,
-//     listId: number
-// }
+type Task = {
+  // id: number,
+  text: string,
+  listId: number
+}
+/* eslint-disable */

@@ -1,18 +1,17 @@
-import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import prisma from "../../script";
-import Lists from "@/components/lists";
 
 export default async function Home() {
   const addList = async (formData: FormData) => {
     "use server";
 
-    await prisma.toDo.create({
+   const res = await prisma.toDo.create({
       data: {
         title: formData.get("title") as string,
       },
     });
 
-    revalidatePath("/");
+    redirect(`/ToDos/${res.id}`)
   };
 
 
