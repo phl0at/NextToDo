@@ -32,11 +32,11 @@ export default async function List({ params }: any) {
     return (
       <>
         <div>{res.title}</div>
-        {tasks.map((task) => (
-          <ul>
+        <ul>
+          {tasks.map((task) => (
             <li key={task.id}>{task.text}</li>
-          </ul>
-        ))}
+          ))}
+        </ul>
         <form action={addTask}>
           <input type="text" name="text" placeholder="add task" />
           <button type="submit">Add Task</button>
