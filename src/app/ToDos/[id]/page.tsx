@@ -3,7 +3,6 @@ import prisma from "../../../../script";
 import Error from "./not-found";
 
 export default async function List({ params }: any) {
-    
   const id = Number(params.id);
   const res = await prisma.toDo.findUnique({
     where: {
@@ -16,11 +15,10 @@ export default async function List({ params }: any) {
     },
   });
 
-
   const addTask = async (formData: FormData) => {
     "use server";
 
-    const newTask = await prisma.tasks.create({
+    await prisma.tasks.create({
       data: {
         text: formData.get("text") as string,
         listId: Number(params.id),

@@ -5,7 +5,7 @@ type List = {
 };
 
 type Task = {
-  // id: number,
+  id: number,
   text: string,
   listId: number
 }
