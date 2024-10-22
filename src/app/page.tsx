@@ -15,8 +15,6 @@ export default async function Home() {
     revalidatePath("/");
   };
 
-  const lists = await prisma.toDo.findMany()
-  console.log(lists)
 
 
   return (
@@ -26,7 +24,7 @@ export default async function Home() {
         <input type="text" name="title" placeholder="add title" />
         <button type="submit">add</button>
       </form>
-      <Lists lists={lists}/>
+
     </>
   );
 }
