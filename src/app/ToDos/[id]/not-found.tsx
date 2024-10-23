@@ -1,4 +1,4 @@
 
 export default function Error(){
-    return <h1>Couldn't find List</h1>
+    return <h1>{`Couldn't find List`}</h1>
 }

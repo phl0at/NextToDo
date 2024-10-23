@@ -1,5 +1,5 @@
 import { revalidatePath } from "next/cache";
-import prisma from "../../../../script";
+import prisma from "../../../../prisma/client";
 import Error from "./not-found";
 
 export default async function List({ params }: any) {

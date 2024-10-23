@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
-import prisma from "../../script";
+import prisma from "../../prisma/client";
 
 export default async function Home() {
   const addList = async (formData: FormData) => {
