@@ -2,6 +2,7 @@
 type List = {
   id: number;
   title: string;
+  userId: string;
 };
 
 type Task = {

@@ -1,13 +1,19 @@
 import { redirect } from "next/navigation";
 import prisma from "../../prisma/client";
+import {getKindeServerSession} from "@kinde-oss/kinde-auth-nextjs/server";
+
 
 export default async function Home() {
+const {getUser} = getKindeServerSession();
+const user = await getUser();
+console.log(user)
   const addList = async (formData: FormData) => {
     "use server";
 
     const res = await prisma.toDo.create({
       data: {
         title: formData.get("title") as string,
+        userId: user.id as string
       },
     });
 
