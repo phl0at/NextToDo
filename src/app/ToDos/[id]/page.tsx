@@ -2,7 +2,7 @@ import { revalidatePath } from "next/cache";
 import prisma from "../../../../prisma/client";
 import Error from "./not-found";
 
-export default async function List({ params }: any) {
+export default async function List({ params }: { params: { id: String } }) {
   const id = Number(params.id);
   const res = await prisma.toDo.findUnique({
     where: {
