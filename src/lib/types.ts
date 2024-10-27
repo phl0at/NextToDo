@@ -6,8 +6,18 @@ type List = {
 };
 
 type Task = {
-  id: number,
-  text: string,
-  listId: number
-}
+  id: number;
+  text: string;
+  listId: number;
+};
+
+type User = {
+  id: string | null;
+  email: string | null;
+  family_name: string | null;
+  given_name: string | null;
+  picture: string | null;
+  username?: string | null;
+  phone_number?: string | null;
+};
 /* eslint-disable */
