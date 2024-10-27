@@ -1,20 +1,21 @@
-import React from "react";
 import Image from "next/image";
-import { LogoutLink, LoginLink } from "@kinde-oss/kinde-auth-nextjs";
-const ProfileButton = (user: User) => {
-  return (
-    <>
-      <LogoutLink>Log Out</LogoutLink>
-      <button>
-        <Image
-          src={user.picture ? user.picture : ""}
-          alt="profile image"
-          width={50}
-          height={50}
-        />
-      </button>
-    </>
-  );
+
+type User = {
+  picture?: string | null; // Define `picture` as optional and nullable
 };
 
-export default ProfileButton;
+type ProfileButtonProps = {
+  user: User;
+};
+
+export default function ProfileButton({ user }: ProfileButtonProps) {
+  return (
+    <button>
+      {user.picture ? (
+        <Image src={user.picture} width={50} height={50} alt="User profile picture" />
+      ) : (
+        <span>Profile</span> // Fallback in case picture is missing
+      )}
+    </button>
+  );
+}
