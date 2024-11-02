@@ -5,9 +5,9 @@ import { FaHouse } from "react-icons/fa6";
 import Search from "./search";
 
 export default async function Header() {
-  const { isAuthenticated, getUser } = getKindeServerSession();
+  const { /*isAuthenticated,*/ getUser } = getKindeServerSession();
   const user = await getUser();
-  const loggedIn = await isAuthenticated();
+  // const loggedIn = await isAuthenticated()
 
   return (
     <>
