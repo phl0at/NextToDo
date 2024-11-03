@@ -7,7 +7,7 @@ const Search = () => {
         <FaMagnifyingGlass />
       </button>
       <input
-        className="bg-black focus:outline-none focus:ring- rounded-md pl-6"
+        className="bg-black focus:outline-none focus:ring- rounded-md pl-6 text-white"
         type="text"
       />
     </div>

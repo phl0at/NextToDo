@@ -1,8 +1,7 @@
 import { revalidatePath } from "next/cache";
 import prisma from "../../../../prisma/client";
-import Error from "./not-found";
 
-export default async function List({ params }: { params: { id: String } }) {
+export default async function List({ params }: { params: { id: string } }) {
   const id = Number(params.id);
   const res = await prisma.toDo.findUnique({
     where: {
@@ -44,6 +43,6 @@ export default async function List({ params }: { params: { id: String } }) {
       </>
     );
   } else {
-    return Error();
+    return new Error("error");
   }
 }

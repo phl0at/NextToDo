@@ -7,9 +7,7 @@ export default async function ToDos() {
 
   return (
     <>
-
       <Lists lists={lists} />
-
     </>
   );
 }

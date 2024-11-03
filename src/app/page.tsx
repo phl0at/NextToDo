@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import prisma from "../../prisma/client";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+export const dynamic = "force-dynamic"
 
 export default async function Home() {
   const { getUser, isAuthenticated } = getKindeServerSession();

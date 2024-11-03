@@ -2,7 +2,7 @@
 type List = {
   id: number;
   title: string;
-  userId: string;
+  userId: string | null;
 };
 
 type Task = {
@@ -19,5 +19,5 @@ type User = {
   picture: string | null;
   username?: string | null;
   phone_number?: string | null;
-};
+} | null;
 /* eslint-disable */

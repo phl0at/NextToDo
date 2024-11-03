@@ -1,13 +1,12 @@
+"use client"
 import Link from "next/link";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import ProfileButton from "./profileButton";
 import { FaHouse } from "react-icons/fa6";
 import Search from "./search";
+import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
-export default async function Header() {
-  const { /*isAuthenticated,*/ getUser } = getKindeServerSession();
-  const user = await getUser();
-  // const loggedIn = await isAuthenticated()
+export default function Header() {
+  const { user } = useKindeBrowserClient();
 
   return (
     <>
