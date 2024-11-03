@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { AuthProvider } from "@/lib/AuthProvider";
+import SideBar from "@/components/sideBar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -30,10 +31,13 @@ export default function RootLayout({
     <AuthProvider>
       <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col`}
         >
           <Header />
-          {children}
+          <div className="flex ">
+            <SideBar />
+            {children}
+          </div>
           <Footer />
         </body>
       </html>
