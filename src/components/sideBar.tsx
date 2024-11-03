@@ -6,12 +6,22 @@ import { FiAlignJustify } from "react-icons/fi";
 const SideBar = () => {
   const [display, setDisplay] = useState(true);
   return (
-    <main>
-      <button className="absolute" onClick={() => setDisplay((prev) => !prev)}>
-        <FiAlignJustify />
+    <div className={display ? "mr-2" : "mr-14"}>
+      <button
+        className="absolute ml-3"
+        onClick={() => setDisplay((prev) => !prev)}
+      >
+        <FiAlignJustify size="40" />
       </button>
-      <div className={display ? "w-20 h-20 bg-slate-600" : "w-0 h-20"}></div>
-    </main>
+      <div
+        className={`${
+          display ? "w-60" : "w-0"
+        } bg-slate-600 overflow-hidden transition-all ease-in-out`}
+        style={{
+          height: "calc(100vh - 7.5rem)",
+        }}
+      ></div>
+    </div>
   );
 };
 
