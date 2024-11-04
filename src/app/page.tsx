@@ -1,6 +1,10 @@
 import { redirect } from "next/navigation";
 import prisma from "../../prisma/client";
-import { getKindeServerSession, LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs/server";
+import {
+  getKindeServerSession,
+  LoginLink,
+  LogoutLink,
+} from "@kinde-oss/kinde-auth-nextjs/server";
 import SideBar from "@/components/sideBar";
 
 export const dynamic = "force-dynamic";
@@ -11,11 +15,9 @@ export default async function Home({ params }: { params: string }) {
   const user = await getUser();
   const loggedIn = await isAuthenticated();
 
-
-
-if(!user){
-  redirect("/landing")
-}
+  if (!user) {
+    redirect("/landing");
+  }
 
   const addList = async (formData: FormData) => {
     "use server";
@@ -35,8 +37,7 @@ if(!user){
   return (
     <main className="flex">
       <SideBar user={user} lists={lists} />
-      <LoginLink>LogIn</LoginLink>
-      <LogoutLink>LogOut</LogoutLink>
+
       {loggedIn ? (
         <form action={addList}>
           <input type="text" name="text" placeholder="add title" />

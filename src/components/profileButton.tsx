@@ -1,10 +1,22 @@
 import { LoginLink, LogoutLink } from "@kinde-oss/kinde-auth-nextjs";
 import Image from "next/image";
 import { useState } from "react";
-
+import { useEffect } from "react";
 export default function ProfileButton({ user }: { user: User }) {
   const [display, setDisplay] = useState(false);
-
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (
+        !target.closest(".profile-button") &&
+        !target.closest(".dropdown-menu")
+      ) {
+        setDisplay(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
   return (
     <>
       <button onClick={() => setDisplay((prev) => !prev)}>
@@ -20,7 +32,11 @@ export default function ProfileButton({ user }: { user: User }) {
           alt="User profile picture"
         />
       </button>
-      <div className={display ? "absolute right-0 top-10 w-20 h-20" : "w-0 h-0 absolute"}>
+      <div
+        className={`${
+          display ? "h-20 bg-blue-600" : "h-0 "
+        } absolute right-2 top-12 w-20 overflow-hidden rounded-md flex flex-col items-start justify-evenly`}
+      >
         <LoginLink>Log In</LoginLink>
         <LogoutLink>Log Out</LogoutLink>
       </div>
