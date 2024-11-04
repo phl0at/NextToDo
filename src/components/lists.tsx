@@ -1,12 +1,11 @@
+"use server"
 import Link from "next/link";
 import prisma from "../../prisma/client";
 import { revalidatePath } from "next/cache";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
-export default async function Lists({ user }: { user: User }) {
-  const lists = await prisma.toDo.findMany();
-  console.log(lists);
+export async function Lists({ user, lists }: { user: User; lists: ToDo[] }) {
 
   const addToDo = async (formData: FormData) => {
     "use server";
@@ -24,8 +23,8 @@ export default async function Lists({ user }: { user: User }) {
   return (
     <>
       <ul>
-        {lists &&
-          lists.map((list) => {
+        {lists.length &&
+          lists.map((list: ToDo) => {
             return (
               <Link href={`/ToDos/${list.id}`} key={list.id}>
                 {list.title}

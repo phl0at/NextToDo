@@ -38,12 +38,7 @@ export default async function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col`}
         >
           <Header />
-          <div className="flex">
-            <SideBar>
-              <Lists user={user} />
-            </SideBar>
-            {children}
-          </div>
+          {children}
           <Footer />
         </body>
       </html>
