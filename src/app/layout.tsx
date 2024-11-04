@@ -4,8 +4,6 @@ import "./globals.css";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { AuthProvider } from "@/lib/AuthProvider";
-import SideBar from "@/components/sideBar";
-import Lists from "@/components/lists";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 const geistSans = localFont({
