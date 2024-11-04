@@ -9,7 +9,7 @@ import SideBar from "@/components/sideBar";
 
 export const dynamic = "force-dynamic";
 
-export default async function Home({ params }: { params: string }) {
+export default async function Home() {
   const { getUser, isAuthenticated } = getKindeServerSession();
   const lists = await prisma.toDo.findMany();
   const user = await getUser();
