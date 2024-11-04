@@ -2,8 +2,6 @@ import { redirect } from "next/navigation";
 import prisma from "../../prisma/client";
 import {
   getKindeServerSession,
-  LoginLink,
-  LogoutLink,
 } from "@kinde-oss/kinde-auth-nextjs/server";
 import SideBar from "@/components/sideBar";
 
