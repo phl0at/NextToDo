@@ -4,7 +4,7 @@ const Search = () => {
   return (
     <div className="flex flex-row justify-evenly items-center">
       <button className="z-10 relative left-5">
-        <FaMagnifyingGlass />
+        <FaMagnifyingGlass className="text-white" />
       </button>
       <input
         className="bg-black focus:outline-none focus:ring- rounded-md pl-6 text-white"

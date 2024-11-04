@@ -1,7 +1,7 @@
 -- CreateTable
 CREATE TABLE "toDo" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "userId" TEXT NOT NULL,
+    "userId" TEXT,
     "title" TEXT NOT NULL
 );
 

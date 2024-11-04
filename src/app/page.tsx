@@ -1,12 +1,14 @@
 import { redirect } from "next/navigation";
 import prisma from "../../prisma/client";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+
 export const dynamic = "force-dynamic"
 
 export default async function Home() {
   const { getUser, isAuthenticated } = getKindeServerSession();
   const user = await getUser();
   const loggedIn = await isAuthenticated();
+  const kindURL = process.env.KINDE_SITE_URL
 
   const addList = async (formData: FormData) => {
     "use server";
@@ -21,7 +23,7 @@ export default async function Home() {
 
       redirect(`/ToDos/${res.id}`);
     } else {
-      redirect("/");
+      redirect(`${kindURL}`);
     }
   };
 
