@@ -1,13 +1,13 @@
 "use client";
-import Lists from "./lists";
 import React from "react";
 import { useState } from "react";
 import { FiAlignJustify } from "react-icons/fi";
-import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+// import Lists from "./lists";
+// import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
 const SideBar = () => {
   const [display, setDisplay] = useState(true);
-  const { user } = useKindeBrowserClient();
+  // const { user } = useKindeBrowserClient();
 
   return (
     <div className={display ? "mr-2" : "mr-14"}>
@@ -25,7 +25,7 @@ const SideBar = () => {
           height: "calc(100vh - 7.5rem)",
         }}
       >
-        <Lists user={user} />
+        {/* <Lists user={user}/> */}
       </div>
     </div>
   );
