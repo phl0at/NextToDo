@@ -1,8 +1,8 @@
 /* eslint-disable */
 type ToDo = {
   id: number;
-  title: string;
-  userId: string;
+  title: string | null;
+  userId: string | null;
 };
 
 type Task = {
