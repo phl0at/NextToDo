@@ -8,7 +8,7 @@ type ToDo = {
 type Task = {
   id: string;
   text: string;
-  listId: number;
+  listId: string;
 };
 
 type User = {
