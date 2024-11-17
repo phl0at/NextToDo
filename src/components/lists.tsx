@@ -5,7 +5,13 @@ import { useState } from "react";
 export function Lists({ lists }: { user: User; lists: ToDo[] }) {
   const [titleText, setTitleText] = useState("");
 
-
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    await addToDo(formData);
+    setTitleText("");
+  };
+  
   return (
     <main className="mt-10 ml-3">
       <ul>
@@ -17,16 +23,14 @@ export function Lists({ lists }: { user: User; lists: ToDo[] }) {
           );
         })}
       </ul>
-      <form action={addToDo}>
+      <form onSubmit={onSubmit}>
         <input
           type="text"
           name="title"
           value={titleText}
           onChange={(e) => setTitleText(e.target.value)}
         />
-        <button type="submit" onSubmit={() => setTitleText("")}>
-          +
-        </button>
+        <button type="submit">+</button>
       </form>
     </main>
   );

@@ -8,9 +8,9 @@ const SideBar = ({ user, lists }: { user: User; lists: ToDo[] }) => {
   const [display, setDisplay] = useState(true);
 
   return (
-    <div className={display ? "mr-2" : "mr-14"}>
+    <div className={`${display ? "mr-2" : "mr-14"} w-60`}>
       <button
-        className="absolute ml-3"
+        className="absolute z-10"
         onClick={() => setDisplay((prev) => !prev)}
       >
         <FiAlignJustify size="40" />
@@ -18,7 +18,7 @@ const SideBar = ({ user, lists }: { user: User; lists: ToDo[] }) => {
       <div
         className={`${
           display ? "w-60" : "w-0"
-        } bg-slate-600 overflow-hidden transition-all ease-in-out`}
+        } bg-slate-600 overflow-hidden transition-all ease-in-out `}
         style={{
           height: "calc(100vh - 7.5rem)",
         }}
