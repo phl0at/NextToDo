@@ -8,7 +8,7 @@ const SideBar = ({ user, lists }: { user: User; lists: ToDo[] }) => {
   const [display, setDisplay] = useState(true);
 
   return (
-    <div className={`${display ? "mr-2" : "mr-14"} w-60`}>
+    <div>
       <button
         className="absolute z-10"
         onClick={() => setDisplay((prev) => !prev)}
@@ -17,7 +17,7 @@ const SideBar = ({ user, lists }: { user: User; lists: ToDo[] }) => {
       </button>
       <div
         className={`${
-          display ? "w-60" : "w-0"
+          display ? "w-60 mr-2" : "mr-14 w-0"
         } bg-slate-600 overflow-hidden transition-all ease-in-out `}
         style={{
           height: "calc(100vh - 7.5rem)",
