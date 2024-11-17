@@ -5,7 +5,7 @@ export default async function List({ params }: { params: { id: string } }) {
   const id = params.id;
   const res = await prisma.toDo.findUnique({
     where: {
-      id,
+      id: id,
     },
   });
   const tasks = await prisma.tasks.findMany({
