@@ -1,12 +1,12 @@
 /* eslint-disable */
 type ToDo = {
-  id: number;
+  id: string;
   title: string | null;
   userId: string | null;
 };
 
 type Task = {
-  id: number;
+  id: string;
   text: string;
   listId: number;
 };

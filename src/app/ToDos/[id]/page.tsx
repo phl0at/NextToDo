@@ -2,7 +2,7 @@ import { revalidatePath } from "next/cache";
 import prisma from "../../../../prisma/client";
 
 export default async function List({ params }: { params: { id: string } }) {
-  const id = Number(params.id);
+  const id = params.id;
   const res = await prisma.toDo.findUnique({
     where: {
       id,
@@ -20,7 +20,7 @@ export default async function List({ params }: { params: { id: string } }) {
     await prisma.tasks.create({
       data: {
         text: formData.get("text") as string,
-        listId: Number(params.id),
+        listId: params.id,
       },
     });
 

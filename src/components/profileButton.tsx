@@ -21,7 +21,7 @@ export default function ProfileButton({ user }: { user: User }) {
     <>
       <button onClick={() => setDisplay((prev) => !prev)}>
         <Image
-          className="rounded-full h-[35px] w-[35px]"
+          className="rounded-full h-[35px] w-[35px] profile-button"
           src={
             user?.picture
               ? user?.picture
@@ -35,7 +35,7 @@ export default function ProfileButton({ user }: { user: User }) {
       <div
         className={`${
           display ? "h-20 bg-blue-600" : "h-0 "
-        } absolute right-2 top-12 w-20 overflow-hidden rounded-md flex flex-col items-start justify-evenly`}
+        } absolute right-2 top-12 w-20 overflow-hidden rounded-md flex flex-col items-start justify-evenly dropdown-menu`}
       >
         <LoginLink>Log In</LoginLink>
         <LogoutLink>Log Out</LogoutLink>

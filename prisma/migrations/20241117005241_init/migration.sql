@@ -1,14 +1,14 @@
 -- CreateTable
 CREATE TABLE "toDo" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" TEXT NOT NULL PRIMARY KEY,
     "userId" TEXT,
     "title" TEXT NOT NULL
 );
 
 -- CreateTable
 CREATE TABLE "tasks" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" TEXT NOT NULL PRIMARY KEY,
     "text" TEXT NOT NULL,
-    "listId" INTEGER NOT NULL,
+    "listId" TEXT NOT NULL,
     CONSTRAINT "tasks_listId_fkey" FOREIGN KEY ("listId") REFERENCES "toDo" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );

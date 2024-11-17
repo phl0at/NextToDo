@@ -7,7 +7,7 @@ export function Lists({ lists }: { user: User; lists: ToDo[] }) {
       <ul >
         {lists.map((list: ToDo) => {
           return (
-            <Link href={`/${list.id}`} key={list.id}>
+            <Link href={`/list/${list.id}`} key={list.id}>
               {list.title}
             </Link>
           );
