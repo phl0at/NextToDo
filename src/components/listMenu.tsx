@@ -2,20 +2,33 @@ import React from "react";
 
 const ListMenu = ({
   setShowMenu,
-  setMenuPos,
+  position,
+  selectedList,
 }: {
   setShowMenu: (visible: boolean) => void;
-  setMenuPos: (position: MenuPosition) => void;
+  position: MenuPosition;
+  selectedList: ToDo | null;
 }) => {
-    
-  const handleMenu = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    setMenuPos({ x: e.pageX, y: e.pageY });
-    setShowMenu(true);
-  };
-
   return (
-    <main onContextMenu={handleMenu} className="w-100 h-100 bg-white"></main>
+    <div
+      style={{
+        position: "absolute",
+        top: position.y,
+        left: position.x,
+        backgroundColor: "white",
+        border: "1px solid #ccc",
+        padding: "10px",
+        zIndex: 20,
+      }}
+      onMouseLeave={() => setShowMenu(false)}
+    >
+      
+      <ul>
+        <li>Edit</li>
+        <li>Delete</li>
+
+      </ul>
+    </div>
   );
 };
 
