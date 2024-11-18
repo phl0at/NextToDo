@@ -20,4 +20,9 @@ type User = {
   username?: string | null;
   phone_number?: string | null;
 } | null;
+
+type MenuPosition = {
+  x: number;
+  y: number;
+}
 /* eslint-disable */
