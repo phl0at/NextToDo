@@ -9,12 +9,15 @@ type MenuPosition = {
   y: number;
 };
 
-
 export function Lists({ lists }: { lists: ToDo[] }) {
   const [titleText, setTitleText] = useState("");
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [menuPos, setMenuPos] = useState<MenuPosition>({ x: 0, y: 0 });
-  const [selectedList, setSelectedList] = useState<ToDo | null>(null);
+  const [selectedList, setSelectedList] = useState<ToDo>({
+    id: "",
+    title: "",
+    userId: "",
+  });
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -23,10 +26,7 @@ export function Lists({ lists }: { lists: ToDo[] }) {
     setTitleText("");
   };
 
-  const handleContextMenu = (
-    e: React.MouseEvent<HTMLElement>,
-    list: ToDo
-  ) => {
+  const handleContextMenu = (e: React.MouseEvent<HTMLElement>, list: ToDo) => {
     e.preventDefault();
     setMenuPos({ x: e.pageX, y: e.pageY });
     setShowMenu(true);
@@ -51,7 +51,7 @@ export function Lists({ lists }: { lists: ToDo[] }) {
         <ListMenu
           setShowMenu={setShowMenu}
           position={menuPos}
-          selectedList={selectedList}
+          list={selectedList}
         />
       )}
       <form onSubmit={onSubmit}>

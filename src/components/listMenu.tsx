@@ -1,13 +1,15 @@
 import React, { useEffect, useRef } from "react";
+import DeleteButton from "./deleteButton";
+import { list } from "postcss";
 
 const ListMenu = ({
   setShowMenu,
   position,
-  selectedList,
+  list,
 }: {
   setShowMenu: (visible: boolean) => void;
   position: MenuPosition;
-  selectedList: ToDo | null;
+  list: ToDo;
 }) => {
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -36,13 +38,10 @@ const ListMenu = ({
         padding: "10px",
         zIndex: 20,
       }}
-
     >
-
       <ul>
         <li>Edit</li>
-        <li>Delete</li>
-
+        <DeleteButton id={list.id} />
       </ul>
     </div>
   );
