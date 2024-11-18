@@ -41,7 +41,7 @@ const ListMenu = ({
     >
       <ul>
         <li>Edit</li>
-        <DeleteButton id={list.id} />
+        <DeleteButton setShowMenu={setShowMenu} id={list.id} />
       </ul>
     </div>
   );
