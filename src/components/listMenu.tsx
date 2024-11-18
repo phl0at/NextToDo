@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 const ListMenu = ({
   setShowMenu,
@@ -9,8 +9,23 @@ const ListMenu = ({
   position: MenuPosition;
   selectedList: ToDo | null;
 }) => {
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      setShowMenu(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   return (
     <div
+      ref={menuRef}
       style={{
         position: "absolute",
         top: position.y,
@@ -20,9 +35,9 @@ const ListMenu = ({
         padding: "10px",
         zIndex: 20,
       }}
-      onMouseLeave={() => setShowMenu(false)}
+
     >
-      
+
       <ul>
         <li>Edit</li>
         <li>Delete</li>
