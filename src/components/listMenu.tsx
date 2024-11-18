@@ -23,6 +23,7 @@ const ListMenu = ({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
   return (
     <div
       ref={menuRef}
