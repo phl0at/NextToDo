@@ -3,6 +3,7 @@ import { addToDo } from "@/lib/actions";
 import { useState } from "react";
 import { CiMenuKebab } from "react-icons/ci";
 import ListMenu from "./listMenu";
+import DeleteButton from "./deleteButton";
 
 type MenuPosition = {
   x: number;
@@ -18,6 +19,15 @@ export function Lists({ lists }: { lists: ToDo[] }) {
     title: "",
     userId: "",
   });
+
+  const buttons = [
+    <DeleteButton
+      key="delete"
+      setShowMenu={setShowMenu}
+      id={selectedList.id}
+      userId={selectedList.userId}
+    />,
+  ];
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -51,11 +61,12 @@ export function Lists({ lists }: { lists: ToDo[] }) {
         <ListMenu
           setShowMenu={setShowMenu}
           position={menuPos}
-          list={selectedList}
+          buttons={buttons}
         />
       )}
       <form onSubmit={onSubmit}>
         <input
+          className="bg-slate-900"
           type="text"
           name="title"
           value={titleText}

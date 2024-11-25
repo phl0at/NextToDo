@@ -2,7 +2,7 @@
 type ToDo = {
   id: string;
   title: string | null;
-  userId: string | null;
+  userId: string;
 };
 
 type Task = {

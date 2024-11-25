@@ -5,7 +5,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import { AuthProvider } from "@/lib/AuthProvider";
 import SideBar from "@/components/sideBar";
-import { getCurrentUser, getAllLists } from "@/lib/helper";
+import { getAllLists } from "@/lib/helper";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +28,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const user = await getCurrentUser();
   const lists = await getAllLists();
 
   return (
@@ -39,7 +38,7 @@ export default async function RootLayout({
         >
           <Header />
           <div className="flex">
-            <SideBar user={user} lists={lists} />
+            <SideBar lists={lists} />
             {children}
           </div>
           <Footer />

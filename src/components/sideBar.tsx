@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FiAlignJustify } from "react-icons/fi";
 import { Lists } from "./lists";
 
-const SideBar = ({ user, lists }: { user: User; lists: ToDo[] }) => {
+const SideBar = ({ lists }: { lists: ToDo[] }) => {
   const [display, setDisplay] = useState(true);
 
   return (
@@ -23,7 +23,7 @@ const SideBar = ({ user, lists }: { user: User; lists: ToDo[] }) => {
           height: "calc(100vh - 7.5rem)",
         }}
       >
-        <Lists user={user} lists={lists} />
+        <Lists lists={lists} />
       </div>
     </div>
   );

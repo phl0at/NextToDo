@@ -1,15 +1,13 @@
 import React, { useEffect, useRef } from "react";
-import DeleteButton from "./deleteButton";
-import { list } from "postcss";
 
 const ListMenu = ({
   setShowMenu,
   position,
-  list,
+  buttons,
 }: {
   setShowMenu: (visible: boolean) => void;
   position: MenuPosition;
-  list: ToDo;
+  buttons: React.ReactNode[];
 }) => {
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -40,8 +38,7 @@ const ListMenu = ({
       }}
     >
       <ul>
-        <li>Edit</li>
-        <DeleteButton setShowMenu={setShowMenu} id={list.id} />
+        {buttons.map((button) => button)}
       </ul>
     </div>
   );

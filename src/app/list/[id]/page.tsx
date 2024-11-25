@@ -32,7 +32,7 @@ export default async function List({ params }: { params: { id: string } }) {
       <div className="flex flex-col gap-10 w-[80%]">
         <div>{res.title}</div>
         <form className="flex flex-col w-full" action={addTask}>
-          <input className="w-full" type="text" name="text" placeholder="add task" />
+          <input className="w-full bg-slate-900" type="text" name="text" placeholder="add task" />
           <button type="submit">Add Task</button>
         </form>
         <ul>

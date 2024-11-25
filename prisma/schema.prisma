@@ -13,14 +13,14 @@ datasource db {
 
 model toDo {
   id String @id @default(uuid())
-  userId String?
+  userId String
   title String
   tasks tasks[]
 }
 
 model tasks {
   id String @id @default(uuid())
-  list toDo @relation(fields: [listId], references: [id])
+  list toDo @relation(fields: [listId], references: [id],  onDelete: Cascade)
   text String
   listId String
 }
